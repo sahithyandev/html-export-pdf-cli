@@ -9,7 +9,7 @@ export function createHtmlExportPdf(program: Command) {
 		.option("-i, --inputs <inputs>", "Input one or more local or online paths", collectParameters, [])
 		.option("-o, --outFile [outFile]", "Output file name(default: {input}.pdf)")
 		.option("--outDir [outDir]", "Output directory(default: process.cwd())")
-		.option("--headless [headless]", "Whether to run the browser in headless mode(default: 'new')", (v) => {
+		.option("--headless [headless]", "Whether to run the browser in headless mode(default: true)", (v) => {
 			if (v === "false")
 				return false;
 
@@ -17,7 +17,7 @@ export function createHtmlExportPdf(program: Command) {
 				return true;
 
 			return v;
-		}, "new")
+		}, true)
 
 		// https://pptr.dev/api/puppeteer.pdfoptions
 		.option("--scale <scale>", "Scales the rendering of the web page. Amount must be between 0.1 and 2(default: 1)", v => Number(v), 1)
