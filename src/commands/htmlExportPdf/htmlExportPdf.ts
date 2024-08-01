@@ -3,7 +3,7 @@ import { accessSync, constants } from "node:fs";
 import process from "node:process";
 
 import { dim, green, red } from "colorette";
-import type { PDFMargin, PaperFormat } from "puppeteer";
+import type { BrowserLaunchArgumentOptions, PDFMargin, PaperFormat } from "puppeteer";
 import fg from "fast-glob";
 
 import { createProgress, isValidUrl, replaceExt, writeFileSafe } from "../../utils";
@@ -14,7 +14,7 @@ export interface HtmlExportPdfOptions {
 	outlineTags: string[]
 	outFile: string
 	outDir?: string
-	headless?: boolean | "new"
+	headless?: BrowserLaunchArgumentOptions["headless"]
 	debug?: boolean
 	scale?: number
 	headerTemplate?: string
@@ -167,7 +167,9 @@ export async function htmlExportPdf(args: undefined | string[], options: HtmlExp
 				const isWrite = await writeFileSafe(output, file);
 				if (isWrite) {
 					progress.increment(1);
-					isSingleFile && process.stdout.write(`\n\n ${green("  ✓ ")}${dim("Saved to ")} ${output}\n\n`);
+					if (isSingleFile) {
+						process.stdout.write(`\n\n ${green("  ✓ ")}${dim("Saved to ")} ${output}\n\n`);
+					}
 				}
 				else { process.exit(1); }
 			}
@@ -183,7 +185,9 @@ export async function htmlExportPdf(args: undefined | string[], options: HtmlExp
 
 	await printer.closeBrowser();
 	progress.stop();
-	!isSingleFile && process.stdout.write(`\n\n ${green("  ✓ ")}${dim("Saved to ")} ${path.join(dir, options.outDir ?? "")}\n\n`);
+	if (!isSingleFile) {
+		process.stdout.write(`\n\n ${green("  ✓ ")}${dim("Saved to ")} ${path.join(dir, options.outDir ?? "")}\n\n`);
+	}
 	process.exit(0);
 }
 

@@ -4,16 +4,16 @@ import process from "node:process";
 import { PDFDocument } from "pdf-lib";
 import puppeteer from "puppeteer";
 import { red } from "colorette";
-import type { Browser, LaunchOptions, PDFOptions, Page } from "puppeteer";
+import type { Browser, PDFOptions, Page, PuppeteerLaunchOptions } from "puppeteer";
 
 import { getOutline, setOutline } from "./outline";
 import { setMetadata } from "./postprocesser";
 
-export type { Browser, PDFOptions, Page, LaunchOptions };
+export type { Browser, PDFOptions, Page, PuppeteerLaunchOptions };
 
 export interface PrinterOptions {
 	debug?: boolean
-	headless?: boolean | "new"
+	headless?: PuppeteerLaunchOptions["headless"]
 	allowLocal?: boolean
 	allowRemote?: boolean
 	outlineTags?: string[]
@@ -32,7 +32,7 @@ export interface PrinterOptions {
 
 export class Printer extends EventEmitter {
 	private debug: boolean;
-	private headless: boolean | "new";
+	private headless: PuppeteerLaunchOptions["headless"];
 	private allowLocal: boolean;
 	private outlineTags: string[];
 	private allowRemote: boolean;
@@ -55,7 +55,7 @@ export class Printer extends EventEmitter {
 		super();
 
 		this.debug = options.debug ?? false;
-		this.headless = options.headless ?? "new";
+		this.headless = options.headless ?? true;
 		this.allowLocal = options.allowLocal ?? false;
 		this.allowRemote = options.allowRemote ?? true;
 		this.outlineTags = options.outlineTags ?? ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -77,7 +77,7 @@ export class Printer extends EventEmitter {
 			this.headless = false;
 	}
 
-	async setup(puppeteerLaunchOptions?: LaunchOptions) {
+	async setup(puppeteerLaunchOptions?: PuppeteerLaunchOptions) {
 		const puppeteerOptions = {
 			// https://github.com/puppeteer/puppeteer/issues/2735#issuecomment-470309033
 			// pipe: true,
