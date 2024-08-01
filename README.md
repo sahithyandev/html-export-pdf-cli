@@ -137,7 +137,6 @@ etc.
 
 #### [PaperFormat](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.paperformat.md)
 
-
 #### [PDFMargin](https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfmargin.md)
 
 ## PDF File Name Convention
@@ -193,7 +192,6 @@ Rules for automatically generating PDF file names.
 | `media`                      | `string`              | `--media`                       | Emulate `print` or `screen` media, defaults to print.                                                                         | `print`                |
 | `debug`                      | `boolean`             | `--debug`                       | Debug.                                                                                                                        | `false`                |
 | `warn`                       | `boolean`             | `--warn`                        | Enable warning logs.                                                                                                          | `false`                |
-
 
 ## License
 

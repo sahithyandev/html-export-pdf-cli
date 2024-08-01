@@ -2,7 +2,7 @@
 	"name": "html-export-pdf-cli",
 	"type": "module",
 	"version": "1.1.5",
-	"packageManager": "pnpm@8.8.0",
+	"packageManager": "pnpm@9.6.0",
 	"description": "Render HTML to PDF(with outline) using Puppeteer.",
 	"author": "CondorHero",
 	"license": "MIT",
@@ -48,8 +48,8 @@
 		"html-export-pdf-cli": "bin/html-export-pdf-cli.mjs"
 	},
 	"files": [
-		"dist",
-		"bin"
+		"bin",
+		"dist"
 	],
 	"engines": {
 		"node": ">=18.12.0"
@@ -71,25 +71,25 @@
 	],
 	"dependencies": {
 		"cli-progress": "^3.12.0",
-		"commander": "^11.0.0",
-		"fast-glob": "^3.3.1",
-		"html-entities": "^2.4.0",
+		"commander": "^12.1.0",
+		"fast-glob": "^3.3.2",
+		"html-entities": "^2.5.2",
 		"pdf-lib": "1.17.1",
 		"puppeteer": "^22.15.0"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config-ts": "^0.43.1",
-		"@types/cli-progress": "^3.11.3",
-		"@types/node": "^20.7.1",
-		"bumpp": "^9.2.0",
+		"@antfu/eslint-config": "^2.24.1",
+		"@types/cli-progress": "^3.11.6",
+		"@types/node": "^22.0.2",
+		"bumpp": "^9.4.1",
 		"colorette": "^2.0.20",
-		"eslint": "^8.50.0",
-		"jiti": "^1.20.0",
-		"lint-staged": "^14.0.1",
-		"simple-git-hooks": "^2.9.0",
-		"tsup": "^7.2.0",
-		"typescript": "^5.2.2",
-		"vitest": "^0.34.5"
+		"eslint": "^9.8.0",
+		"jiti": "^1.21.6",
+		"lint-staged": "^15.2.7",
+		"simple-git-hooks": "^2.11.1",
+		"tsup": "^8.2.3",
+		"typescript": "^5.5.4",
+		"vitest": "^2.0.5"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npx lint-staged"

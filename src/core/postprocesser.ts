@@ -2,15 +2,15 @@ import type { PDFDocument } from "pdf-lib";
 import pkg from "../../package.json";
 
 interface Meta {
-  title?: string
-  subject?: string
-  author?: string
-  keywords?: string[] | string
-  creator?: string
-  producer?: string
-  creationDate?: Date | string
-  modDate?: Date | string
-  metadataDate?: Date | string
+	title?: string
+	subject?: string
+	author?: string
+	keywords?: string[] | string
+	creator?: string
+	producer?: string
+	creationDate?: Date | string
+	modDate?: Date | string
+	metadataDate?: Date | string
 }
 
 export function setMetadata(pdfDoc: PDFDocument, meta: Meta) {

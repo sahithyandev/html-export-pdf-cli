@@ -36,7 +36,7 @@ export function createProgress(indeterminate = false) {
 			current = v;
 			progress.update(v, { spin: getSpinner(spinner), text, title: replaceTitle(title) });
 		},
-		increment(step: number, { txt, headTitle }: { txt?: string; headTitle?: string } = { txt: "", headTitle: "" }) {
+		increment(step: number, { txt, headTitle }: { txt?: string, headTitle?: string } = { txt: "", headTitle: "" }) {
 			text = txt?.length ? txt : text;
 			title = headTitle?.length ? headTitle : title;
 			progress.increment(step, { spin: getSpinner(spinner), text, title: replaceTitle(title) });

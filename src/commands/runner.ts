@@ -30,7 +30,11 @@ export function afterParse(cliInstance: Command) {
 
 export function runCli(programName: string) {
 	registerCommands(program, programName);
-	beforeParse && beforeParse(program);
+	if (beforeParse) {
+		beforeParse(program);
+	}
 	program.parse(process.argv);
-	afterParse && afterParse(program);
+	if (afterParse) {
+		afterParse(program);
+	}
 }

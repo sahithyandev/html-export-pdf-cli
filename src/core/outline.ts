@@ -168,8 +168,8 @@ export async function getOutline(page: Page, tags: string[], outlineContainerSel
 			}
 			else {
 				const newNode: OutlineNode = {
-					// https://stackoverflow.com/questions/57551589/property-innertext-does-not-exist-on-type-element
-					title: (<HTMLElement>tag).innerText.trim(),
+					// http://perfectionkills.com/the-poor-misunderstood-innerText/
+					title: tag.textContent?.trim() ?? "",
 					destination: dest,
 					children: [],
 					depth: orderDepth,

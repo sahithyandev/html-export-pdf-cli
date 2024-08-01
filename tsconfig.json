@@ -1,18 +1,18 @@
 {
 	"compilerOptions": {
 		"target": "ESNext",
+		"jsx": "preserve",
 		"lib": [
 			"ESNext",
 			"DOM",
 			"DOM.Iterable"
 		],
-		"jsx": "preserve",
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
-		"esModuleInterop": true,
 		"strict": true,
 		"noUnusedLocals": true,
+		"esModuleInterop": true,
 		"skipLibCheck": true
 	}
 }
