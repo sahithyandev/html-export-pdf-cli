@@ -9,7 +9,7 @@
 	"homepage": "https://github.com/condorheroblog/html-export-pdf-cli#readme",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:condorheroblog/html-export-pdf-cli.git"
+		"url": "git+https://github.com/condorheroblog/html-export-pdf-cli.git"
 	},
 	"bugs": {
 		"url": "https://github.com/condorheroblog/html-export-pdf-cli/issues"
