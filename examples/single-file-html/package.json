@@ -19,6 +19,6 @@
 		"html-export-pdf-cli:help": "html-export-pdf-cli --help"
 	},
 	"devDependencies": {
-		"html-export-pdf-cli": "workspace:^"
+		"@sahithyan/html-export-pdf-cli": "workspace:^"
 	}
 }

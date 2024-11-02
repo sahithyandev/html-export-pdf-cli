@@ -1,5 +1,5 @@
 {
-	"name": "@sahithyn/html-export-pdf-cli",
+	"name": "@sahithyan/html-export-pdf-cli",
 	"type": "module",
 	"version": "1.2.0",
 	"packageManager": "pnpm@9.6.0",
@@ -75,7 +75,7 @@
 		"fast-glob": "^3.3.2",
 		"html-entities": "^2.5.2",
 		"pdf-lib": "1.17.1",
-		"puppeteer": "^22.15.0"
+		"puppeteer": "23.6.1"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.24.1",
